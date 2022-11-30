@@ -83,6 +83,7 @@
         // Check connection
         if (!$conn) {
           die("Connection failed: " . $conn->connect_error);
+          echo "Connection failed";
         }
 
         $sql = "SELECT name FROM member_of_parliament WHERE id=".$_GET["id"}."";
