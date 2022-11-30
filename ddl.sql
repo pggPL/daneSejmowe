@@ -49,7 +49,8 @@ ADD COLUMN "session_number" int4 NOT NULL REFERENCES "session" ("number");
 
 CREATE TABLE "voting" (
     "id" int4 NOT NULL PRIMARY KEY,
-    "name" varchar(255) NOT NULL
+    "group_name" varchar(255) NOT NULL,
+    "name" varchar(255) NOT NULL,
 );
 
 ALTER TABLE "voting"

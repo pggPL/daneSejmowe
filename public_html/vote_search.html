@@ -3,7 +3,6 @@
 <head>
     <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css">
 
-  <link rel="stylesheet" href="style_search.css" />
   <meta charset="UTF-8">
     <title>Wyszukiwarka posłów</title>
 </head>
@@ -60,7 +59,7 @@
   <section>
         <header>
       <h2>
-        Wyszukaj posła
+        Wyszukaj głosowanie
       </h2>
     </header>
 
@@ -108,10 +107,6 @@
   })
 </script>
 <script>
-
-  const atributesPol = ['Imię i nazwisko', 'Wybrany dnia:', 'Lista:', 'Okręg wyborczy:', 'Liczba głosów:', 'Ślubowanie:', 'Staż parlamentarny:', 'Klub/koło:', 'Data i miejsce urodzenia:', 'Wykształcenie:', 'Ukończona szkoła:', 'Zawód:']
-  const atributesEng = ['name', 'election_date', 'list', 'district', 'number_of_votes', 'date_of_oath', 'experience_in_parliament', 'club', 'date_of_birth', 'education', 'finished_school', 'profession']
-  
   function search() {
         let text = document.getElementById("text").value;
         if(text == "") {
@@ -122,25 +117,27 @@
         }
 
 
-        client.index("members_of_parliament").search(
+        client.index("votes").search(
             text,
             {
-                attributesToHighlight: [...atributesEng],
+                attributesToHighlight: ["group_name", "name"],
                 highlightPreTag: '<span style="color:red">',
                 highlightPostTag: '</span>',
             }
         ).then(
             (result) => {
+                console.log(result);
                 for (let i = 0; i < 40; i++) {
                     document.getElementById("result" + (i + 1)).style.visibility = "hidden";
                 }
                 for (let i = 0; i < Math.min(result.hits.length, 40); i++) {
 
-                    document.getElementById("result" + (i + 1)).innerHTML  = "";
-                    for (let j = 0; j < atributesPol.length; j++) {
-                        console.log(atributesPol[j]);
-                        document.getElementById("result" + (i + 1)).innerHTML += "<br><div><b>" + atributesPol[j] + " </b> <br> " + result.hits[i]["_formatted"][atributesEng[j]] + "</div>";
-                    }
+                    document.getElementById("result" + (i + 1)).innerHTML  = "Posiedzenie " + result.hits[i]["session"] + "<br>";
+                    document.getElementById("result" + (i + 1)).innerHTML  += "Głosowanie nr " + result.hits[i]["number"] + "<br>";
+                    //document.getElementById("result" + (i + 1)).innerHTML
+                    document.getElementById("result" + (i + 1)).innerHTML  += result.hits[i]["_formatted"]["group_name"] + "<br>";
+                    document.getElementById("result" + (i + 1)).innerHTML  += cutText(result.hits[i]["_formatted"]["name"]);
+                    
                     document.getElementById("result" + (i + 1)).style.visibility = "visible";
                 }
             }
