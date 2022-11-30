@@ -1,37 +1,38 @@
 -- Drop tables if they do not exist.
 
-DROP TABLE IF EXISTS "member_of_parliament";
-DROP TABLE IF EXISTS "club";
-DROP TABLE IF EXISTS "speech";
-DROP TABLE IF EXISTS "session";
-DROP TABLE IF EXISTS "voting";
-DROP TABLE IF EXISTS "vote";
+DROP TABLE IF EXISTS "member_of_parliament" CASCADE;
+DROP TABLE IF EXISTS "club" CASCADE;
+DROP TABLE IF EXISTS "speech" CASCADE;
+DROP TABLE IF EXISTS "session" CASCADE;
+DROP TABLE IF EXISTS "voting" CASCADE;
+DROP TABLE IF EXISTS "vote" CASCADE;
 
 
 CREATE TABLE "member_of_parliament" (
     "id" int4 NOT NULL PRIMARY KEY,
     "name" varchar(255) NOT NULL,
-    "day_of_election" date NOT NULL,
+    "day_of_election" date,
     "list" varchar(255) NOT NULL,
     "district" varchar(255) NOT NULL,
     "number_of_votes" int4 NOT NULL,
-    "date_of_oath" date NOT NULL,
-    "experience_in_parliament" varchar(255) NOT NULL,
-    "function_in_club" varchar(255) NOT NULL,
-    "date_of_birth" int4 NOT NULL,
-    "place_of_birth" varchar(255) NOT NULL,
-    "education" varchar(255) NOT NULL,
-    "finished_school" varchar(255) NOT NULL,
+    "date_of_oath" date,
+    "experience_in_parliament" varchar NOT NULL,
+    "function_in_club" varchar(255),
+    "date_of_birth" date,
+    "place_of_birth" varchar(255),
+    "education" varchar,
+    "finished_school" varchar,
     "profession" varchar(255) NOT NULL
 );
 
 CREATE TABLE "club" (
     "id" int4 NOT NULL PRIMARY KEY,
-    "name" varchar(255) NOT NULL
+    "name" varchar(255) NOT NULL,
+    "abbreviation" varchar(255) NOT NULL
 );
 
-ALTER TABLE "member_of_parliament" 
-ADD COLUMN "club_id" int4 NOT NULL REFERENCES "club" ("id");
+ALTER TABLE "member_of_parliament"
+ADD COLUMN "club_id" int4 REFERENCES "club" ("id");
 
 CREATE TABLE "speech" (
     "id" int4 NOT NULL PRIMARY KEY,
@@ -50,7 +51,7 @@ ADD COLUMN "session_number" int4 NOT NULL REFERENCES "session" ("number");
 CREATE TABLE "voting" (
     "id" int4 NOT NULL PRIMARY KEY,
     "group_name" varchar(255) NOT NULL,
-    "name" varchar(255) NOT NULL,
+    "name" varchar(255) NOT NULL
 );
 
 ALTER TABLE "voting"
