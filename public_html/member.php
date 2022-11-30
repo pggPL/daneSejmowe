@@ -90,11 +90,11 @@
         $result = pg_exec($conn, $sql);
 
 
-        $name = pg_fetch_row($result)[0]
+        $name = pg_fetch_row($result)[0];
 
         pg_close($conn);
 
-        echo "<td>Imię i nazwisko</td><td>".$name."</td> "
+        echo "<td>Imię i nazwisko</td><td>".$name."</td> ";
     ?>
 
             </tr>
