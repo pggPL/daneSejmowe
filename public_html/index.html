@@ -141,6 +141,9 @@
                         console.log(atributesPol[j]);
                         document.getElementById("result" + (i + 1)).innerHTML += "<br><div><b>" + atributesPol[j] + " </b> <br> " + result.hits[i]["_formatted"][atributesEng[j]] + "</div>";
                     }
+                    document.getElementById("result" + (i + 1)).onclick = function() {
+                        window.location.href = "member.html?id=" + result.hits[i]["id"];
+                    }
                     document.getElementById("result" + (i + 1)).style.visibility = "visible";
                 }
             }
