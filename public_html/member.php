@@ -86,7 +86,7 @@
           echo "Connection failed";
         }
 
-        $sql = "SELECT name FROM member_of_parliament WHERE id=".$_GET["id"}."";
+        $sql = "SELECT name FROM member_of_parliament WHERE id=".$_GET["id"]."";
         $result = pg_exec($conn, $sql);
 
 
