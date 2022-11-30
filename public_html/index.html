@@ -135,7 +135,6 @@
                     document.getElementById("result" + (i + 1)).style.visibility = "hidden";
                 }
                 for (let i = 0; i < Math.min(result.hits.length, 40); i++) {
-
                     document.getElementById("result" + (i + 1)).innerHTML  = "";
                     for (let j = 0; j < atributesPol.length; j++) {
                         console.log(atributesPol[j]);
@@ -152,7 +151,6 @@
                 for (let i = 0; i < 40; i++) {
                     document.getElementById("result" + (i + 1)).style.visibility = "hidden";
                 }
-                console.log(error);
             }
         );
     }

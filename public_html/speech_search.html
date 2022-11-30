@@ -69,14 +69,15 @@
   </section>
 
 
+
     <section id = "results">
-        <aside id = "result1" style="visibility: hidden"></aside>
         <script>
           // add 40 aside results after document load
             window.onload = function() {
-                for (var i = 2; i <= 40; i++) {
+                for (var i = 1; i <= 40; i++) {
                 var aside = document.createElement("aside");
                 aside.id = "result" + i;
+                aside.style.cursor = "pointer";
                 aside.style.visibility = "hidden";
                 document.getElementById("results").appendChild(aside);
                 }
@@ -130,7 +131,6 @@
             }
         ).then(
             (result) => {
-                console.log(result);
                 for (let i = 0; i < 40; i++) {
                     document.getElementById("result" + (i + 1)).style.visibility = "hidden";
                 }
@@ -141,7 +141,10 @@
                     document.getElementById("result" + (i + 1)).innerHTML  += "Przemówienie nr " + result.hits[i]["_formatted"]["order"] + "<br>";
                     document.getElementById("result" + (i + 1)).innerHTML  += "Przemawia " + result.hits[i]["_formatted"]["speaker"] + "<br>";
                     document.getElementById("result" + (i + 1)).innerHTML  += cutText(result.hits[i]["_formatted"]["text"]);
-                    
+
+                    document.getElementById("result" + (i + 1)).onclick = function() {
+                        window.location.href = "speech.html?id=" + result.hits[i]["id"];
+                    }
                     document.getElementById("result" + (i + 1)).style.visibility = "visible";
                 }
             }
