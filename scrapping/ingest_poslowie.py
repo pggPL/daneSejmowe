@@ -7,8 +7,8 @@ import os
 
 # iter over all files from ../mowy/
 id = 0
-for file in os.listdir('../../poslowie'):
-    json_file = open(f'../../poslowie/{file}', encoding='utf-8')
+for file in os.listdir('../../BD/poslowie'):
+    json_file = open(f'../../BD/poslowie/{file}', encoding='utf-8')
     posel = json.load(json_file)
     print(posel["Imię i nazwisko"])
     print(id)
