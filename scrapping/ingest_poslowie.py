@@ -1,15 +1,17 @@
-import meilisearch
+#import meilisearch
 import json
 import os
 
 
-client = meilisearch.Client('http://127.0.0.1:7700', 'pukqRFGHCCCcZTQxV8tBebhd')
+#client = meilisearch.Client('http://127.0.0.1:7700', 'pukqRFGHCCCcZTQxV8tBebhd')
 
 # iter over all files from ../mowy/
 id = 0
-for file in os.listdir('../../BD/poslowie'):
-    json_file = open(f'../../BD/poslowie/{file}', encoding='utf-8')
+for file in os.listdir('../../poslowie'):
+    json_file = open(f'../../poslowie/{file}', encoding='utf-8')
     posel = json.load(json_file)
+    print(posel["Imię i nazwisko"])
+    print(id)
 
     mp = {}
     mp["id"] = id
@@ -38,5 +40,5 @@ for file in os.listdir('../../BD/poslowie'):
         mp["finished_school"] = posel["Ukończona szkoła:"]
     mp["profession"] = posel["Zawód:"]
     id += 1
-    client.index('members_of_parliament').add_documents(mp)
-    print("added" + str(id))
+    #client.index('members_of_parliament').add_documents(mp)
+    #print("added" + str(id))
