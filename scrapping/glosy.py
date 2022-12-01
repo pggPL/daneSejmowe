@@ -19,7 +19,7 @@ from bs4 import BeautifulSoup
 
 cur = conn.cursor()
 
-cur.execute("DELETE FROM vote")
+#cur.execute("DELETE FROM vote")
 
 id = 0
 for file in os.listdir('../../BD/glosowania'):
