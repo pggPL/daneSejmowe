@@ -57,7 +57,6 @@
     </header>
 
     <section>
-          <table >
     <?php
             $id = $_GET['id'];
         if (!is_numeric($id)) {
@@ -72,53 +71,19 @@
           echo "Connection failed";
         }
 
-        $sql = "SELECT * FROM member_of_parliament WHERE id=".$_GET["id"]."";
+        $sql = "SELECT district FROM member_of_parliament WHERE district LIKE '".$_GET["id"]."' || '%'";
         $result = pg_exec($conn, $sql);
 
 
         $row = pg_fetch_row($result);
 
-        $sql = "SELECT name FROM club WHERE id=".$row[14]."";
-        $result = pg_exec($conn, $sql);
+        echo "<h2>Posłowie z okręgu: ".$row[0]."</h2>";
 
-        $club_name = pg_fetch_row($result)[0];
-
-
-        echo "<tr><td>Imię i nazwisko</td><td>".$row[1]."</td></tr> ";
-        echo "<tr><td>Data wyboru</td><td>".$row[2]."</td></tr> ";
-        echo "<tr><td>Lista</td><td>".$row[3]."</td></tr> ";
-        // get first number from $row[4]
-        echo "<tr><td>Okręg</td><td><a href=\"district.php/number=".substr($row[4], 0, 2)."\">".$row[4]."</a></td></tr> ";
-        echo "<tr><td>Liczba głosów</td><td>".$row[5]."</td></tr> ";
-        echo "<tr><td>Ślubowanie</td><td>".$row[6]."</td></tr> ";
-        echo "<tr><td>Doświadczenie parlamentarne</td><td>".$row[7]."</td></tr> ";
-        if($row[8] != null) echo "<tr><td>Funkcja w klubie</td><td>".$row[8]."</td></tr> ";
-        echo "<tr><td>Miejsce urodzenia</td><td>".$row[10]."</td></tr> ";
-        echo "<tr><td>Wykształcenie</td><td>".$row[11]."</td></tr> ";
-        echo "<tr style=\"white-space: break-spaces\"><td>Ukończona szkoła</td><td>".$row[12]."</td></tr> ";
-        echo "<tr><td>Zawód</td><td>".$row[13]."</td></tr> ";
-        echo "<tr><td>Klub/koło poselskie</td><td><a href=\"club.php?id=".$row[14]."\">".$club_name."</a></td></tr> ";
-
-        $sql = "SELECT count(*) FROM speech WHERE member_of_parliament_id=".$_GET["id"]."";
-        $result = pg_exec($conn, $sql);
-        echo "<tr><td>Liczba przemówień</td><td>".pg_fetch_row($result)[0]."</td></tr> ";
-
-        $sql = "SELECT count(*) FROM vote WHERE member_of_parliament_id=".$_GET["id"]."";
-        $result = pg_exec($conn, $sql);
-        $number_of_votes = pg_fetch_row($result)[0];
-
-        $sql = "SELECT count(*) FROM voting";
-        $result = pg_exec($conn, $sql);
-        $total_votes = pg_fetch_row($result)[0];
-
-        echo "<tr><td>Liczba głosowań</td><td>".$number_of_votes." na ".$total_votes."</td></tr> ";
 
 
         pg_close($conn);
 
     ?>
-
-          </table>
     </section>
 
 
