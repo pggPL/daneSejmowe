@@ -67,12 +67,6 @@
           echo "Connection failed";
         }
 
-        $sql = "SELECT * FROM club WHERE id=".$_GET["id"]."";
-        $result = pg_exec($conn, $sql);
-        $club_name = $result[0][1];
-
-
-        $row = pg_fetch_row($result);
 
         $sql = "SELECT name FROM club WHERE id=".$row[14]."";
         $result = pg_exec($conn, $sql);
