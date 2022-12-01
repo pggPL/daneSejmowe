@@ -96,7 +96,7 @@
 
         $sql = "SELECT count(*) FROM speech WHERE member_of_parliament_id=".$_GET["id"]."";
         $result = pg_exec($conn, $sql);
-        echo "<tr><td>Liczba przemówień</td><td>".$result[0]."</td></tr> ";
+        echo "<tr><td>Liczba przemówień</td><td>".pg_fetch_row($result)[0]."</td></tr> ";
 
     ?>
 
