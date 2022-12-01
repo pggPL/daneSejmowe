@@ -30,9 +30,6 @@
             <li>
                 <a href="district_list.php"> Okręgi </a>
             </li>
-            <li>
-                <a href="district_list.php"> Okręgi </a>
-            </li>
         </ul>
 
     </nav>

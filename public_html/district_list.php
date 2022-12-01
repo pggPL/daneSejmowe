@@ -30,20 +30,12 @@
             <li>
                 <a href="district_list.php"> Okręgi </a>
             </li>
-            <li>
-                <a href="district_list.php"> Okręgi </a>
-            </li>
         </ul>
 
     </nav>
     </header>
 
     <?php
-            $id = $_GET['number'];
-        if (!is_numeric($id)) {
-            echo "Invalid number";
-            exit();
-        }
         // Create connection
         $conn = pg_connect("host=/var/run/postgresql dbname=sejm_db user=sejm password=hRVJCTzNN8PBNUB");
         // Check connection
