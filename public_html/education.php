@@ -62,12 +62,6 @@
     </header>
 
     <?php
-        // assert $_GET['id'] is a number
-        $id = $_GET['id'];
-        if (!is_numeric($id)) {
-            echo "Invalid id";
-            exit();
-        }
 
         // Create connection
         $conn = pg_connect("host=/var/run/postgresql dbname=sejm_db user=sejm password=hRVJCTzNN8PBNUB");
