@@ -39,7 +39,6 @@
     <header>
         <h1>Lista okręgów</h1>
     </header>
-    <section>
     <?php
         // Create connection
         $conn = pg_connect("host=/var/run/postgresql dbname=sejm_db user=sejm password=hRVJCTzNN8PBNUB");
@@ -52,16 +51,17 @@
         $sql = "SELECT DISTINCT district, CAST (split_part(district, '  ', 1) as int) FROM member_of_parliament ORDER BY CAST (split_part(district, '  ', 1) as int)";
         $result = pg_exec($conn, $sql);
 
+        echo '<table>';
         while ($row = pg_fetch_row($result)) {
-            echo "<p><a href='district.php?number=".substr($row[0], 0, 2)."'>$row[0]</a></p><br><br>";
+            echo "<tr><td><a href='district.php?number=".substr($row[0], 0, 2)."'>$row[0]</a></td><td>0</td></tr>";
         }
+        echo '</table>';
 
 
 
         pg_close($conn);
 
     ?>
-    </section>
     </main>
 
 
