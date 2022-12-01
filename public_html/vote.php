@@ -119,9 +119,20 @@
         // every club in one row
         echo '<section><table>';
         echo '<tr><th>Klub</th><th>Za</th><th>Przeciw</th><th>Wstrzymano</th><th>Nieobecny</th><th>Razem</th></tr>';
+        $total_0 = 0;
+        $total_1 = 0;
+        $total_2 = 0;
+        $total_3 = 0;
         while($row = pg_fetch_row($result)) {
             echo '<tr><td>'.$row[0].'</td><td>'.$row[1].'</td><td>'.$row[2].'</td><td>'.$row[3].'</td><td>'.$row[4].'</td><td>'.$row[5].'</td></tr>';
+            $total_0 += $row[1];
+            $total_1 += $row[2];
+            $total_2 += $row[3];
+            $total_3 += $row[4];
         }
+
+        echo '<tr><td>Suma</td><td>'.$total_0.'</td><td>'.$total_1.'</td><td>'.$total_2.'</td><td>'.$total_3.'</td><td>'.($total_0+$total_1+$total_2+$total_3).'</td></tr>';
+
 
         echo '<header><h3>Wynik głosowania</h3></header>';
 
