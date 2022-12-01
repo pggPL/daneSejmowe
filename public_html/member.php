@@ -57,13 +57,6 @@
     </nav>
     </header>
 
-        <header>
-      <h2>
-        Widok posła
-      </h2>
-    </header>
-
-
     <section>
           <table>
             <tr>
@@ -88,14 +81,14 @@
         pg_close($conn);
 
         echo "<tr><td>Imię i nazwisko</td><td>".$row[1]."</td></tr> ";
-        echo "<tr><td>Dzień wyboru</td><td>".$row[2]."</td></tr> ";
+        echo "<tr><td>Data wyboru</td><td>".$row[2]."</td></tr> ";
         echo "<tr><td>Lista</td><td>".$row[3]."</td></tr> ";
         echo "<tr><td>Okręg</td><td>".$row[4]."</td></tr> ";
         echo "<tr><td>Liczba głosów</td><td>".$row[5]."</td></tr> ";
         echo "<tr><td>Ślubowanie</td><td>".$row[6]."</td></tr> ";
         echo "<tr><td>Doświadczenie parlamentarne</td><td>".$row[7]."</td></tr> ";
         echo "<tr><td>Funkcja w klubie</td><td>".$row[8]."</td></tr> ";
-        echo "<tr><td>Dzień urodzenia</td><td>".$row[9]."</td></tr> ";
+        echo "<tr><td>Data urodzenia</td><td>".$row[9]."</td></tr> ";
         echo "<tr><td>Miejsce urodzenia</td><td>".$row[10]."</td></tr> ";
         echo "<tr><td>Wykształcenie</td><td>".$row[11]."</td></tr> ";
         echo "<tr><td>Ukończona szkoła</td><td>".$row[12]."</td></tr> ";
