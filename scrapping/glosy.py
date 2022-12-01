@@ -47,15 +47,15 @@ for file in os.listdir('../../BD/glosowania'):
 
                 # irate over td and make pairs from 3k + 1 and 3k +2
                 td = soup.find('div', {'id': 'contentBody'}).findAll('td')
-                for i in range(0, len(td), 3):
+                for j in range(0, len(td), 3):
                     # get data from td
                     id_glosowania = id_glosowania
-                    name = td[i + 1].text
+                    name = td[j + 1].text
 
                     # "surname name1 name2 .." to "name1 name2 .. surname" in name
                     name = ' '.join(name.split(' ')[1:]) + ' ' + name.split(' ')[0]
 
-                    vote = td[i + 2].text
+                    vote = td[j + 2].text
                     club_shortcut = clubs[i][1]
 
                     vote_dict = {
