@@ -35,7 +35,7 @@ for posiedzenie in range(26, 1000):
                 mowa['posiedzenie'] = posiedzenie
                 mowa['dzien'] = dzien
                 mowa['wyp'] = wyp
-                mowa['speech'] = speech.prettify()
+                mowa['speech.php'] = speech.prettify()
 
                 # convert mova to json and save to file
                 import json

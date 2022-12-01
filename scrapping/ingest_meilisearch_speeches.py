@@ -16,7 +16,7 @@ for file in os.listdir('../../BD/mowy'):
     speech["day"] = mowa["dzien"]
     speech["order"] = mowa["wyp"]
     speech["speaker"] = mowa["mowca"]
-    speech["text"] = mowa["speech"]
+    speech["text"] = mowa["speech.php"]
     id += 1
     # print pretty move
     
