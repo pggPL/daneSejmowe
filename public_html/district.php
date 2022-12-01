@@ -79,6 +79,20 @@
 
         echo "<h2>Posłowie z okręgu: ".$row[0]."</h2>";
 
+        echo "<section><table><tr><th>Imię</th><th>Nazwisko</th><th>Klub</th><th>Lista</th><th>Liczba głosów</th></tr>";
+
+        $sql = "SELECT name, club.name, list, votes
+                    FROM member_of_parliament LEFT JOIN club ON member_of_parliament.club_id = club.id
+                    WHERE district LIKE '".$_GET["number"]."' || '%'";
+        $result = pg_exec($conn, $sql);
+
+
+        while($row = pg_fetch_row($result)) {
+            echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td></tr>";
+        }
+
+        echo "</table></section>";
+
 
 
         pg_close($conn);
