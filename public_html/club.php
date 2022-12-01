@@ -56,6 +56,13 @@
     </header>
 
     <?php
+        // assert $_GET['id'] is a number
+        $id = $_GET['id'];
+        if (!is_numeric($id)) {
+            echo "Invalid id";
+            exit();
+        }
+
         // Create connection
         $conn = pg_connect("host=/var/run/postgresql dbname=sejm_db user=sejm password=hRVJCTzNN8PBNUB");
         // Check connection
@@ -90,6 +97,16 @@
 
         // liczba przemów posłów
         // liczba przemów posłów jako % całości
+
+        $sql = "SELECT * FROM speech WHERE (SELECT club_id FROM member_of_parliament WHERE id = member_of_parliament_id) = ".$_GET["id"]."";
+        $result = pg_exec($conn, $sql);
+
+        $number_of_speeches_from_club = pg_fetch_row($result)[0];
+
+        echo "<tr>";
+        echo "<td>Liczba przemów posłów</td>";
+        echo "<td>".$number_of_speeches_from_club."</td>";
+        echo "</tr>";
 
         echo "</table></section>";
 
