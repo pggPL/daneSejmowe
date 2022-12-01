@@ -97,6 +97,12 @@
         $result = pg_exec($conn, $sql);
         echo "<tr><td>Liczba przemówień</td><td>".pg_fetch_row($result)[0]."</td></tr> ";
 
+        $sql = "SELECT count(*) FROM vote WHERE member_of_parliament_id=".$_GET["id"]."";
+        $result = pg_exec($conn, $sql);
+        $number_of_votes = pg_fetch_row($result)[0];
+
+        echo "<tr><td>Liczba głosowań</td><td>".$number_of_votes."</td></tr> ";
+
 
         pg_close($conn);
 
