@@ -26,7 +26,7 @@ for file in os.listdir('../../BD/glosowania'):
         id_glosowania = data[0]
 
         # iterate over shortcuts from file clubs
-        with open('clubs', 'r', encoding='utf-8') as club_file:
+        with open('../../BD/clubs/Sejm', 'r', encoding='utf-8') as club_file:
             clubs = json.load(club_file)
             i = 0
             while i < len(clubs):
