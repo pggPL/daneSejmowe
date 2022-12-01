@@ -88,6 +88,8 @@
 
         $result = pg_exec($conn, $sql);
 
+        echo '<header><h3>Wynik głosowania</h3></header>';
+
         echo '<section><table>';
         while ($row = pg_fetch_row($result)) {
             echo '<tr><td>'.$row[0].'</td><td>'.$row[1].'</td></tr>';
@@ -96,6 +98,9 @@
 
         // teraz głosy
 
+
+
+        echo '<header><h3>Szczegółowe głosy</h3></header>';
 
         $sql = "SELECT type, member_of_parliament.name, club.name FROM vote
                     LEFT JOIN member_of_parliament ON vote.member_of_parliament_id = member_of_parliament.id
