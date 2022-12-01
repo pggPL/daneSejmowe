@@ -143,7 +143,7 @@
                     document.getElementById("result" + (i + 1)).innerHTML  += cutText(result.hits[i]["_formatted"]["text"]);
 
                     document.getElementById("result" + (i + 1)).onclick = function() {
-                        window.location.href = "speech.html?id=" + result.hits[i]["id"];
+                        window.location.href = "speech.php?id=" + result.hits[i]["id"];
                     }
                     document.getElementById("result" + (i + 1)).style.visibility = "visible";
                 }
