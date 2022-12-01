@@ -83,12 +83,12 @@
                     ORDER BY count(*);";
         $result = pg_exec($conn, $sql);
 
-        echo '<table>';
+        echo '<section><table>';
         echo '<tr><th>Wykształcenie</th><th>Liczba posłów</th></tr>';
         while($row = pg_fetch_row($result)) {
             echo "<tr><td>$row[0] </td> <td>$row[1]</td></p>";
         }
-        echo '</table>';
+        echo '</table></section>';
 
 
         pg_close($conn);?>
