@@ -83,7 +83,7 @@
         echo "<tr><td>Data wyboru</td><td>".$row[2]."</td></tr> ";
         echo "<tr><td>Lista</td><td>".$row[3]."</td></tr> ";
         // get first number from $row[4]
-        echo "<tr><td>Okręg</td><td><a href=\"district.php/number=".substr($row[4], 0, 1)."\"".$row[4]."</td></tr> ";
+        echo "<tr><td>Okręg</td><td><a href=\"district.php/number=".substr($row[4], 0, 2)."\">".$row[4]."</td></tr> ";
         echo "<tr><td>Liczba głosów</td><td>".$row[5]."</td></tr> ";
         echo "<tr><td>Ślubowanie</td><td>".$row[6]."</td></tr> ";
         echo "<tr><td>Doświadczenie parlamentarne</td><td>".$row[7]."</td></tr> ";
