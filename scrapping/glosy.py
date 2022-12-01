@@ -20,8 +20,8 @@ from bs4 import BeautifulSoup
 cur = conn.cursor()
 
 id = 0
-for file in os.listdir('../glosowania'):
-    with open(f'../glosowania/{file}', 'r', encoding='utf-8') as f:
+for file in os.listdir('../../BD/glosowania'):
+    with open(f'../../BD/glosowania/{file}', 'r', encoding='utf-8') as f:
         data = json.load(f)
         id_glosowania = data[0]
 
