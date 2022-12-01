@@ -131,6 +131,8 @@
                 ORDER BY count(text) DESC
                 LIMIT 5;";
 
+           echo $sql;
+
 
         $result = pg_exec($conn, $sql);
 
