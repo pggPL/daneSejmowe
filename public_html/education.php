@@ -2,7 +2,6 @@
 <html lang="pl">
 <head>
     <link rel="stylesheet" href="style.css">
-
   <meta charset="UTF-8">
     <title>Wyszukiwarka posłów</title>
 </head>
@@ -56,9 +55,20 @@
     </nav>
     </header>
 
-    <section>
-          <table >
+    <main>
+
+    <header>
+        <h1>Wykształcenie posłów</h1>
+    </header>
+
     <?php
+        // assert $_GET['id'] is a number
+        $id = $_GET['id'];
+        if (!is_numeric($id)) {
+            echo "Invalid id";
+            exit();
+        }
+
         // Create connection
         $conn = pg_connect("host=/var/run/postgresql dbname=sejm_db user=sejm password=hRVJCTzNN8PBNUB");
         // Check connection
@@ -67,37 +77,27 @@
           echo "Connection failed";
         }
 
-        $sql = "SELECT * FROM member_of_parliament WHERE id=".$_GET["id"]."";
+        // Statystyka ogólna - (wykształcenie, liczba posłów)
+
+
+        $sql = "SELECT education, count(*)
+                    FROM member_of_parliament
+                    GROUP BY education
+                    HAVING education != 'NULL'
+                    ORDER BY count(*);";
         $result = pg_exec($conn, $sql);
 
+        echo '<table>';
+        echo '<tr><th>Wykształcenie</th><th>Liczba posłów</th></tr>';
+        while($row = pg_fetch_row($result)) {
+            echo "<tr><td>$row[0] </td> <td>$row[1]</td></p>";
+        }
+        echo '</table>';
 
-        $row = pg_fetch_row($result);
 
-        $sql = "SELECT name FROM club WHERE id=".$row[14]."";
-        $result = pg_exec($conn, $sql);
+        pg_close($conn);?>
 
-        $club_name = pg_fetch_row($result)[0];
-
-        pg_close($conn);
-
-        echo "<tr><td>Imię i nazwisko</td><td>".$row[1]."</td></tr> ";
-        echo "<tr><td>Data wyboru</td><td>".$row[2]."</td></tr> ";
-        echo "<tr><td>Lista</td><td>".$row[3]."</td></tr> ";
-        echo "<tr><td>Okręg</td><td>".$row[4]."</td></tr> ";
-        echo "<tr><td>Liczba głosów</td><td>".$row[5]."</td></tr> ";
-        echo "<tr><td>Ślubowanie</td><td>".$row[6]."</td></tr> ";
-        echo "<tr><td>Doświadczenie parlamentarne</td><td>".$row[7]."</td></tr> ";
-        echo "<tr><td>Funkcja w klubie</td><td>".$row[8]."</td></tr> ";
-        echo "<tr><td>Data urodzenia</td><td>".$row[9]."</td></tr> ";
-        echo "<tr><td>Miejsce urodzenia</td><td>".$row[10]."</td></tr> ";
-        echo "<tr><td>Wykształcenie</td><td>".$row[11]."</td></tr> ";
-        echo "<tr style=\"white-space: break-spaces\"><td>Ukończona szkoła</td><td>".$row[12]."</td></tr> ";
-        echo "<tr><td>Zawód</td><td>".$row[13]."</td></tr> ";
-        echo "<tr><td>Klub/koło poselskie</td><td><a href=\"club.php?id=".$row[14]."\">".$club_name."</a></td></tr> ";
-    ?>
-
-          </table>
-    </section>
+    </main>
 
 
     <footer>
