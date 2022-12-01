@@ -94,7 +94,7 @@
         while ($row = pg_fetch_row($result)) {
             echo '<tr><td>'.$row[0].'</td><td>'.$row[1].'</td></tr>';
         }
-        echo '</table></section>';
+        echo '</table></section><br><br>';
 
         // teraz głosy
 
