@@ -61,6 +61,8 @@
         <h1>Wykształcenie posłów</h1>
     </header>
 
+    <main>
+
     <?php
 
         // Create connection
