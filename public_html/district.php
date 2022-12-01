@@ -49,7 +49,7 @@
           echo "Connection failed";
         }
 
-        $sql = "SELECT district FROM member_of_parliament WHERE district LIKE '".$_GET["number"]."&nbsp' || '%'";
+        $sql = "SELECT district FROM member_of_parliament WHERE district LIKE '".$_GET["number"]." ' || '%'";
         $result = pg_exec($conn, $sql);
 
 
@@ -61,7 +61,7 @@
 
         $sql = "SELECT member_of_parliament.name, club.name, list, number_of_votes
                     FROM member_of_parliament LEFT JOIN club ON member_of_parliament.club_id = club.id
-                    WHERE district LIKE '".$_GET["number"]."' || '%' ORDER BY number_of_votes DESC";
+                    WHERE district LIKE '".$_GET["number"]." ' || '%' ORDER BY number_of_votes DESC";
         $result = pg_exec($conn, $sql);
 
 
