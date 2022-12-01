@@ -48,12 +48,16 @@
           echo "Connection failed";
         }
 
-        $sql = "SELECT DISTINCT district, CAST (split_part(district, '  ', 1) as int) FROM member_of_parliament ORDER BY CAST (split_part(district, '  ', 1) as int)";
+        $sql = "SELECT DISTINCT m1.district, CAST (split_part(m1.district, '  ', 1) as int), count(*) as ile_poslow
+                    FROM member_of_parliament AS m1
+                    LEFT JOIN member_of_parliament AS m2 ON m2.district = m1.district
+                    GROUP BY m2.id, m1.district
+                    ORDER BY CAST (split_part(m1.district, '  ', 1) as int)";
         $result = pg_exec($conn, $sql);
 
         echo '<table>';
         while ($row = pg_fetch_row($result)) {
-            echo "<tr><td><a href='district.php?number=".substr($row[0], 0, 2)."'>$row[0]</a></td><td>0</td></tr>";
+            echo "<tr><td><a href='district.php?number=".substr($row[0], 0, 2)."'>$row[2]</a></td><td>".$row[1]."</td></tr>";
         }
         echo '</table>';
 
