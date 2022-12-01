@@ -48,27 +48,12 @@
           echo "Connection failed";
         }
 
-        $sql = "SELECT district FROM member_of_parliament WHERE district LIKE '".$_GET["number"]."' || '%'";
+        $sql = "SELECT DISTINCT district FROM member_of_parliament";
         $result = pg_exec($conn, $sql);
 
-
-        $row = pg_fetch_row($result);
-
-        echo "<header><h2>Posłowie z okręgu: ".$row[0]."</h2></header>";
-
-        echo "<section><table><tr><th>Imię i nazwisko</th><th>Klub</th><th>Lista</th><th>Liczba głosów</th></tr>";
-
-        $sql = "SELECT member_of_parliament.name, club.name, list, number_of_votes
-                    FROM member_of_parliament LEFT JOIN club ON member_of_parliament.club_id = club.id
-                    WHERE district LIKE '".$_GET["number"]."' || '%' ORDER BY number_of_votes DESC";
-        $result = pg_exec($conn, $sql);
-
-
-        while($row = pg_fetch_row($result)) {
-            echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td></tr>";
+        while ($row = pg_fetch_row($result)) {
+            echo "<a href='district.php?number=".substr($row[0], 0, 2)."'>$row[0]</a><br>";
         }
-
-        echo "</table></section>";
 
 
 
