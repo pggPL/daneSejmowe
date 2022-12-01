@@ -30,6 +30,7 @@ for file in os.listdir('../../BD/glosowania'):
             clubs = json.load(club_file)
             i = 0
             while i < len(clubs):
+                club  = clubs[i]
                 id += 1
                 # get data from url
                 url = f'https://www.sejm.gov.pl/Sejm9.nsf/agent.xsp?symbol=klubglos&IdGlosowania={id_glosowania}&KodKlubu={club[1]}'
