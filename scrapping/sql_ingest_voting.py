@@ -3,6 +3,7 @@ import json
 import os
 
 
+
 def get_files():
     files = []
     for file in os.listdir('./../../glosowania/'):
