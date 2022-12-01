@@ -153,7 +153,7 @@
 
         echo '<section><table>';
         while($row = pg_fetch_row($result)) {
-            echo '<tr><td>'.$row[0].'</td><td> <a href="member.php?id='.$row[1].'">'.$row[2].'</a></td><td><a href="club.php?id='.$row[3].'"> '.$row[4].' </a></td></tr>';
+            echo '<tr><td>'.$row[0].'</td><td> <a href="member.php?id='.$row[2].'">'.$row[1].'</a></td><td><a href="club.php?id='.$row[4].'"> '.$row[3].' </a></td></tr>';
         }
         echo '</table></section>';
 
