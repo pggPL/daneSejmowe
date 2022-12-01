@@ -30,26 +30,7 @@
                 </ul>
 
             </li>
-            <li>
-                <a> Statystyki </a>
-                <ul>
-                    <li>
-                        <a> Najaktywniejsi z klubu </a>
-                    </li>
-                    <li>
-                        <a> Najaktywniejsi na posiedzeniu </a>
-                    </li>
-                    <li>
-                        <a> Najaktywniejsi w okręgach </a>
-                    </li>
-                    <li>
-                        <a href="education.php"> Wykształcenie posłów </a>
-                    </li>
-                    <li>
-                        <a> Statystyki klubów i kół </a>
-                    </li>
-                </ul>
-            </li>
+
         </ul>
 
     </nav>
