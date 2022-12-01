@@ -136,7 +136,7 @@
 
         echo "<section><table>";
         while($row = pg_fetch_row($result)) {
-            echo "<td>".$row[1]."</td> <td>".$row[2]."</td>";
+            echo "<tr><td>".$row[1]."</td> <td>".$row[2]."</td></tr>";
         }
         echo "</table></section>";
 
