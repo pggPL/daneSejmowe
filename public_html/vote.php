@@ -116,15 +116,10 @@
 
         $result = pg_exec($conn, $sql);
 
+        // every club in one row
+        echo '<section><table>';
         while($row = pg_fetch_row($result)) {
-            echo '<header><h3>'.$row[0].'</h3></header>';
-            echo '<section><table>';
-            echo '<tr><td>za</td><td>'.$row[1].'</td></tr>';
-            echo '<tr><td>przeciw</td><td>'.$row[2].'</td></tr>';
-            echo '<tr><td>wstrzymano</td><td>'.$row[3].'</td></tr>';
-            echo '<tr><td>nieobecny</td><td>'.$row[4].'</td></tr>';
-            echo '<tr><td>razem</td><td>'.$row[5].'</td></tr>';
-            echo '</table></section><br><br>';
+            echo '<tr><td>'.$row[0].'</td><td>'.$row[1].'</td><td>'.$row[2].'</td><td>'.$row[3].'</td><td>'.$row[4].'</td><td>'.$row[5].'</td></tr>';
         }
 
         echo '<header><h3>Wynik głosowania</h3></header>';
