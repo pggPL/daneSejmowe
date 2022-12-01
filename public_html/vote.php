@@ -131,7 +131,7 @@
             $total_3 += $row[4];
         }
 
-        echo '<tr><b><td>Suma</td><td>'.$total_0.'</td><td>'.$total_1.'</td><td>'.$total_2.'</td><td>'.$total_3.'</td><td>'.($total_0+$total_1+$total_2+$total_3).'</td></b></tr>';
+        echo '<tr><td><b>Suma</b></td><td>'.$total_0.'</td><td>'.$total_1.'</td><td>'.$total_2.'</td><td>'.$total_3.'</td><td>'.($total_0+$total_1+$total_2+$total_3).'</td></b></tr>';
 
 
         echo '<header><h3>Wynik głosowania</h3></header>';
