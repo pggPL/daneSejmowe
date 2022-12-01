@@ -53,7 +53,7 @@
         $result = pg_exec($conn, $sql);
 
         while ($row = pg_fetch_row($result)) {
-            echo "<a href='district.php?number=".substr($row[0], 0, 2)."'>$row[0]</a><br>";
+            echo "<a href='district.php?number=".substr($row[0], 0, 2)."'>$row[0]</a><br><br>";
         }
 
 
