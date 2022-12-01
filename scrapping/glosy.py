@@ -52,9 +52,8 @@ for file in os.listdir('../../BD/glosowania'):
                     id_glosowania = id_glosowania
                     name = td[i + 1].text
 
-                    # "surname names" to "names surname" in name
-                    name = name.split(' ')
-                    name = name[1] + ' ' + name[0]
+                    # "surname name1 name2 .." to "name1 name2 .. surname" in name
+                    name = ' '.join(name.split(' ')[1:]) + ' ' + name.split(' ')[0]
 
                     vote = td[i + 2].text
                     club_shortcut = clubs[i][1]
