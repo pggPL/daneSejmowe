@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css">
-
-  <link rel="stylesheet" href="style_search.css" />
+    <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
     <title>Wyszukiwarka posłów</title>
 </head>
@@ -75,7 +73,26 @@
 
         echo "<h4>".$club_name."</h4>";
 
-        //
+        // Dane podstawowe
+
+        echo "<table>";
+
+        // liczba posłów w chwili obecnej
+
+        $sql = "SELECT COUNT(*) FROM member_of_parliament WHERE club_id=".$_GET["id"]."";
+        $result = pg_exec($conn, $sql);
+
+        $number_of_mps = pg_fetch_row($result)[0];
+
+        echo "<tr>";
+        echo "<td>Liczba posłów</td>";
+        echo "<td>".$number_of_mps."</td>";
+        echo "</tr>";
+
+        // liczba przemów posłów
+        // liczba przemów posłów jako % całości
+
+        echo "</table>";
 
         pg_close($conn);?>
 
