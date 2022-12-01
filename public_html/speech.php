@@ -73,6 +73,7 @@
 
 
         $sql = "SELECT number, session_number, text, name FROM speech LEFT JOIN member_of_parliament ON speech.member_of_parliament_id = member_of_parliament.id WHERE speech.id=".$_GET["id"]."";
+        echo $sql;
         $result = pg_exec($conn, $sql);
 
         $number = pg_fetch_row($result)[0];
