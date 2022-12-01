@@ -98,7 +98,42 @@
 
         // teraz głosy
 
+        $sql = "SELECT club.name,
+                    sum(za) za,
+                    sum(przeciw) przeciw,
+                    sum(wstrzymano) wstrzymano,
+                    sum(nieobecny) nieobecny,
+                    count(*) razem
+                FROM (SELECT vote.*,
+                        (CASE WHEN type='za' THEN 1 ELSE 0 END) za,
+                        (CASE WHEN type='przeciw' THEN 1 ELSE 0 END) przeciw,
+                        (CASE WHEN type='wstrzymano się' THEN 1 ELSE 0 END) wstrzymano,
+                        (CASE WHEN type='nieobecny' THEN 1 ELSE 0 END) nieobecny
+                            FROM vote WHERE voting_id=".$_GET["id"]."
+                ) vote
+                LEFT JOIN club ON club.id = club_of_the_mp_at_the_time
+                GROUP BY club_of_the_mp_at_the_time, club.name;";
 
+        $result = pg_exec($conn, $sql);
+
+        while($row = pg_fetch_row($result)) {
+            echo '<header><h3>'.$row[0].'</h3></header>';
+            echo '<section><table>';
+            echo '<tr><td>za</td><td>'.$row[1].'</td></tr>';
+            echo '<tr><td>przeciw</td><td>'.$row[2].'</td></tr>';
+            echo '<tr><td>wstrzymano</td><td>'.$row[3].'</td></tr>';
+            echo '<tr><td>nieobecny</td><td>'.$row[4].'</td></tr>';
+            echo '<tr><td>razem</td><td>'.$row[5].'</td></tr>';
+            echo '</table></section><br><br>';
+        }
+
+        echo '<header><h3>Wynik głosowania</h3></header>';
+
+        echo '<section><table>';
+        while ($row = pg_fetch_row($result)) {
+            echo '<tr><td>'.$row[0].'</td><td>'.$row[1].'</td></tr>';
+        }
+        echo '</table></section><br><br>';
 
         echo '<header><h3>Szczegółowe głosy</h3></header>';
 
