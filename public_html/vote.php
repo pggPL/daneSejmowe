@@ -82,6 +82,18 @@
         echo '<h2>'.$row[0].'</h2>';
         echo '<h3>'.$row[1].'</h3>';
 
+        // krótki wynik
+
+        $sql = "SELECT type, count(*) FROM vote WHERE voting_id=".$_GET["id"]." GROUP BY type";
+
+        $result = pg_exec($conn, $sql);
+
+        echo '<table>';
+        while ($row = pg_fetch_row($result)) {
+            echo '<tr><td>'.$row[0].'</td><td>'.$row[1].'</td></tr>';
+        }
+        echo '</table>';
+
         // teraz głosy
 
 
