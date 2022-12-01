@@ -120,7 +120,6 @@
 
         echo "</table></section>";
 
-        echo "<h5>Najbardziej aktywni posłowie</h5>";
 
         $sql = "SELECT member_of_parliament.id, name, count(text)
                 FROM member_of_parliament
@@ -133,6 +132,9 @@
 
 
         $result = pg_exec($conn, $sql);
+
+
+        echo "<header><h5>Najbardziej aktywni posłowie</h5></header>";
 
         echo "<section><table>";
         while($row = pg_fetch_row($result)) {
