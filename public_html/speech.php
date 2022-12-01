@@ -85,7 +85,7 @@
 
         // Dane podstawowe
 
-        echo "<section><aside>".$text."</aside></section>";
+        echo '<section style="width: 70%">'.$text."</section>";
 
 
         pg_close($conn);?>
