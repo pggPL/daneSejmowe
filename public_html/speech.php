@@ -72,8 +72,9 @@
         }
 
 
-        $sql = "SELECT number, session_number, text, name FROM speech LEFT JOIN member_of_parliament ON speech.member_of_parliament_id = member_of_parliament.id WHERE speech.id=".$_GET["id"]."";
-        echo $sql;
+        $sql = "SELECT number, session_number, text
+                    FROM speech
+                    WHERE speech.id=".$_GET["id"]."";
         $result = pg_exec($conn, $sql);
 
         $row = pg_fetch_row($result);
@@ -81,9 +82,6 @@
         $number = $row[0];
         $session = $row[1];
         $text = $row[2];
-        $name = $row[3];
-
-        echo "<header><h4>Przemowa ".$name."</h4></header>";
 
         // Dane podstawowe
 
