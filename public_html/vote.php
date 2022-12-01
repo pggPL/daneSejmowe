@@ -118,6 +118,7 @@
 
         // every club in one row
         echo '<section><table>';
+        echo '<tr><th>Klub</th><th>Za</th><th>Przeciw</th><th>Wstrzymano</th><th>Nieobecny</th><th>Razem</th></tr>';
         while($row = pg_fetch_row($result)) {
             echo '<tr><td>'.$row[0].'</td><td>'.$row[1].'</td><td>'.$row[2].'</td><td>'.$row[3].'</td><td>'.$row[4].'</td><td>'.$row[5].'</td></tr>';
         }
