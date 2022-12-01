@@ -82,7 +82,9 @@
         echo "<tr><td>Imię i nazwisko</td><td>".$row[1]."</td></tr> ";
         echo "<tr><td>Data wyboru</td><td>".$row[2]."</td></tr> ";
         echo "<tr><td>Lista</td><td>".$row[3]."</td></tr> ";
-        echo "<tr><td>Okręg</td><td>".$row[4]."</td></tr> ";
+        // get first number from $row[4]
+        $first_number = ;
+        echo "<tr><td>Okręg</td><td><a href=\"district.php/number=".substr($row[4], 0, 1)."\"".$row[4]."</td></tr> ";
         echo "<tr><td>Liczba głosów</td><td>".$row[5]."</td></tr> ";
         echo "<tr><td>Ślubowanie</td><td>".$row[6]."</td></tr> ";
         echo "<tr><td>Doświadczenie parlamentarne</td><td>".$row[7]."</td></tr> ";
@@ -105,7 +107,7 @@
         $result = pg_exec($conn, $sql);
         $total_votes = pg_fetch_row($result)[0];
 
-        echo "<tr><td>Liczba głosowań</td><td>".$number_of_votes."/".$total_votes."</td></tr> ";
+        echo "<tr><td>Liczba głosowań</td><td>".$number_of_votes." na ".$total_votes."</td></tr> ";
 
 
         pg_close($conn);

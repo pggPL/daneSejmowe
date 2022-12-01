@@ -134,7 +134,7 @@
         $result = pg_exec($conn, $sql);
 
 
-        echo "<header><h5>Najbardziej aktywni posłowie</h5></header>";
+        echo "<header><h5>Najbardziej aktywni posłowie pod względem wypowiedzi</h5></header>";
 
         echo "<section><table>";
         echo "<tr> <th>Posłowie</th> <th>Liczba przemów</th> </tr>";
@@ -142,6 +142,18 @@
             echo "<tr><td>".$row[1]."</td> <td>".$row[2]."</td></tr>";
         }
         echo "</table></section>";
+
+
+
+        $sql = "SELECT member_of_parliament.id, name, count(text)
+                FROM member_of_parliament
+                LEFT JOIN speech
+                ON member_of_parliament.id = speech.member_of_parliament_id
+                GROUP BY member_of_parliament.id, name
+                HAVING club_id = ".$_GET["id"]."
+                ORDER BY count(text) DESC
+                LIMIT 5;";
+
 
         pg_close($conn);?>
 
