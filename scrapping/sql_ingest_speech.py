@@ -41,7 +41,7 @@ for file in files:
     # sql
     print(f"INSERT INTO speech (id, session_number, number, text, member_of_parliament_id) VALUES ({id}, {session_number}, {number}, '{text}', (SELECT id FROM member_of_parliament WHERE '" + speaker_str + f"' LIKE name || '%'))")
     cur.execute(f"INSERT INTO speech (id, session_number, number, text, member_of_parliament_id) VALUES ({id}, {session_number}, {number}, '{text}', (SELECT id FROM member_of_parliament WHERE '" + speaker_str + f"' LIKE name || '%'))")
-
+    break
     print("inserted " + str(id))
 
     id += 1
