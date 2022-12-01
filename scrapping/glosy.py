@@ -52,8 +52,23 @@ for file in os.listdir('../../BD/glosowania'):
                     # get data from td
                     id_glosowania = id_glosowania
                     name = td[i + 1].text
+
+                    # "surname names" to "names surname" in name
+                    name = name.split(' ')
+                    name = name[1] + ' ' + name[0]
+
                     vote = td[i + 2].text
                     club_shortcut = clubs[i][1]
+
+                    vote_dict = {
+                        'Za': 'za',
+                        'Przeciw': 'przeciw',
+                        'Wstrzymał się': 'wstrzymano się',
+                        'Nie głosował': 'nie glosowal',
+                        'Nieobecny': 'nieobecny'
+                    }
+
+                    vote = vote_dict[vote]
 
                     sql = f"INSERT INTO vote (id, type, member_of_parliament_id, voting_id, club_of_the_mp_at_the_time) " \
                           f"VALUES " \
