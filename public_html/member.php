@@ -98,7 +98,7 @@
         echo "<tr><td>Wykształcenie</td><td>".$row[11]."</td></tr> ";
         echo "<tr><td>Ukończona szkoła</td><td>".$row[12]."</td></tr> ";
         echo "<tr><td>Zawód</td><td>".$row[13]."</td></tr> ";
-    echo "<tr><td>Klub/koło poselskie</td><td><a href=\"club.php?id=".$row[14]." \">".$club_name."</a></td></tr> ";
+        echo "<tr><td>Klub/koło poselskie</td><td><a href=\"club.php?id=".$row[14]."\">".$club_name."</a></td></tr> ";
     ?>
 
           </table>
