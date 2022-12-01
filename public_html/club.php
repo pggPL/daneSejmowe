@@ -137,6 +137,7 @@
         echo "<header><h5>Najbardziej aktywni posłowie</h5></header>";
 
         echo "<section><table>";
+        echo "<tr> <th>Posłowie</th> <th>Liczba przemów</th> </tr>";
         while($row = pg_fetch_row($result)) {
             echo "<tr><td>".$row[1]."</td> <td>".$row[2]."</td></tr>";
         }
