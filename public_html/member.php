@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css">
+    <link rel="stylesheet" href="style.css">
 
-  <link rel="stylesheet" href="style_search.css" />
   <meta charset="UTF-8">
     <title>Wyszukiwarka posłów</title>
 </head>
