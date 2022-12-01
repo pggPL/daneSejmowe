@@ -111,11 +111,11 @@
         $sql = "SELECT COUNT(*) FROM speech";
         $result = pg_exec($conn, $sql);
 
-        $number_of_speeches_from_club = pg_fetch_row($result)[0];
+        $total_speaches = pg_fetch_row($result)[0];
 
         echo "<tr>";
         echo "<td>Liczba przemów jako część przemów wszystkich posłów</td>";
-        echo "<td>".($number_of_speeches_from_club / $number_of_all_speached)."</td>";
+        echo "<td>".($number_of_speeches_from_club / $total_speaches)."</td>";
         echo "</tr>";
 
         echo "</table></section>";
