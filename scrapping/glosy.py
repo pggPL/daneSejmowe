@@ -70,7 +70,7 @@ for file in os.listdir('../../BD/glosowania'):
 
                     vote = vote_dict[vote]
 
-                    if name == "vel  Sęk Szymon Szynkowski":
+                    if name == "vel Sęk Szymon Szynkowski":
                         name = "Szymon Szynkowski vel Sęk"
 
                     sql = f"INSERT INTO vote (id, type, member_of_parliament_id, voting_id, club_of_the_mp_at_the_time) " \
