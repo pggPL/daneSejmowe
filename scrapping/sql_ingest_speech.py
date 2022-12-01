@@ -48,3 +48,8 @@ for file in files:
     print("inserted " + str(id))
 
     id += 1
+
+
+conn.commit() # <- We MUST commit to reflect the inserted data
+cur.close()
+conn.close()
