@@ -36,6 +36,7 @@ ADD COLUMN "club_id" int4 REFERENCES "club" ("id");
 
 CREATE TABLE "speech" (
     "id" int4 NOT NULL PRIMARY KEY,
+    "number" int4 NOT NULL,
     "text" text NOT NULL,
     "member_of_parliament_id" int4 NOT NULL REFERENCES "member_of_parliament" ("id")
 );
