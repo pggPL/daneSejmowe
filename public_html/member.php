@@ -58,7 +58,7 @@
     </header>
 
     <section>
-          <table style="white-space: break-spaces">
+          <table >
             <tr>
               <th></th>
               <th></th>
@@ -96,7 +96,7 @@
         echo "<tr><td>Data urodzenia</td><td>".$row[9]."</td></tr> ";
         echo "<tr><td>Miejsce urodzenia</td><td>".$row[10]."</td></tr> ";
         echo "<tr><td>Wykształcenie</td><td>".$row[11]."</td></tr> ";
-        echo "<tr><td>Ukończona szkoła</td><td>".$row[12]."</td></tr> ";
+        echo "<tr style=\"white-space: break-spaces\"><td>Ukończona szkoła</td><td>".$row[12]."</td></tr> ";
         echo "<tr><td>Zawód</td><td>".$row[13]."</td></tr> ";
         echo "<tr><td>Klub/koło poselskie</td><td><a href=\"club.php?id=".$row[14]."\">".$club_name."</a></td></tr> ";
     ?>
