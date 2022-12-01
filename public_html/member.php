@@ -101,7 +101,11 @@
         $result = pg_exec($conn, $sql);
         $number_of_votes = pg_fetch_row($result)[0];
 
-        echo "<tr><td>Liczba głosowań</td><td>".$number_of_votes."</td></tr> ";
+        $sql = "SELECT count(*) FROM votings";
+        $result = pg_exec($conn, $sql);
+        $total_votes = pg_fetch_row($result)[0];
+
+        echo "<tr><td>Liczba głosowań</td><td>".$number_of_votes."/".$total_votes."</td></tr> ";
 
 
         pg_close($conn);
