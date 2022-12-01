@@ -37,8 +37,9 @@
 
     <main>
     <header>
-        <h1>Lista okręgów/h1>
+        <h1>Lista okręgów</h1>
     </header>
+    <section>
     <?php
         // Create connection
         $conn = pg_connect("host=/var/run/postgresql dbname=sejm_db user=sejm password=hRVJCTzNN8PBNUB");
@@ -60,6 +61,7 @@
         pg_close($conn);
 
     ?>
+    </section>
     </main>
 
 
