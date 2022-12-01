@@ -44,7 +44,7 @@
           echo "Connection failed";
         }
 
-        $sql = "SELECT DISTINCT district FROM member_of_parliament";
+        $sql = "SELECT DISTINCT district FROM member_of_parliament ORDER BY district";
         $result = pg_exec($conn, $sql);
 
         while ($row = pg_fetch_row($result)) {
