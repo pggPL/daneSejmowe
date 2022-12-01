@@ -35,8 +35,8 @@ for file in files:
     text = json_file["speech"]
 
     # escape ' in group_name and name
-    group_name = group_name.replace("'", "''")
-    name = name.replace("'", "''")
+    text = text.replace("'", "''")
+    speaker_str = speaker_str.replace("'", "''")
 
     # sql
     print(f"INSERT INTO speech VALUES ({id}, {session_number}, '{text}', (SELECT id FROM member_of_parliament WHERE position(name in '" + speaker_str + "') > 0), {session_number});")
