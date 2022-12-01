@@ -87,6 +87,16 @@
 
         echo '<main>'.$text."</main>";
 
+        $sql = "SELECT id, name
+                    FROM speech LEFT JOIN member_of_parliament ON member_of_parliament.id = member_of_parliament_id
+                    WHERE speech.id=".$_GET["id"]."";
+
+        $result = pg_exec($conn, $sql);
+
+        if($row = pg_fetch_row($result)) {
+            echo '<a href = "member.php?id='.$row[0].'">'.$row[1].'</a>';
+        }
+
 
         pg_close($conn);?>
 
