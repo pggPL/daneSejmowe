@@ -39,6 +39,6 @@ for file in files:
     speaker_str = speaker_str.replace("'", "''")
 
     # sql
-    print(f"INSERT INTO speech (id, session_number, number, text, member_of_parliament_id) VALUES ({id}, {session_number}, {number}, '{text}', (SELECT id FROM member_of_parliament WHERE position(name in '" + speaker_str + f"') > 0), {session_number});")
+    print(f"INSERT INTO speech (id, session_number, number, text, member_of_parliament_id) VALUES ({id}, {session_number}, {number}, '{text}', (SELECT id FROM member_of_parliament WHERE position(name in '" + speaker_str + f"') > 0))")
     break
     id += 1
