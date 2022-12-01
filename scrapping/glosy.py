@@ -83,7 +83,7 @@ for file in os.listdir('../../BD/glosowania'):
 
                     conn.commit()  # <- We MUST commit to reflect the inserted data
                 i += 1
-
+    os.remove(f'../../BD/glosowania/{file}')
 cur.close()
 conn.close()
 
