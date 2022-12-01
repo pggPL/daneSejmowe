@@ -82,6 +82,19 @@
         echo '<h2>'.$row[0].'</h2>';
         echo '<h3>'.$row[1].'</h3>';
 
+        // teraz głosy
+
+
+        $sql = "SELECT type, name FROM vote LEFT JOIN member_of_parliament ON vote.member_of_parliament_id = member_of_parliament.id WHERE voting_id = ".$_GET["id"]."";
+
+        $result = pg_exec($conn, $sql);
+
+        echo '<section><table>';
+        while($row = pg_fetch_row($result)) {
+            echo '<tr><td>'.$row[0].'</td><td> '.$row[1].'</td></tr>';
+        }
+        echo '</table></section>';
+
         echo "</main>";
 
 
