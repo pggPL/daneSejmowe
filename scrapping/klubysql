@@ -1,0 +1,15 @@
+INSERT INTO club VALUES (0, 'Klub Parlamentarny Prawo i Sprawiedliwość', 'PiS');
+INSERT INTO club VALUES (1, 'Klub Parlamentarny Koalicja Obywatelska - Platforma Obywatelska, Nowoczesna, Inicjatywa Polska, Zieloni', 'KO');
+INSERT INTO club VALUES (2, 'Koalicyjny Klub Poselski Lewicy (Nowa Lewica, Razem)', 'Lewica');
+INSERT INTO club VALUES (3, 'Klub Parlamentarny Koalicja Polska - PSL, UED, Konserwatyści', 'KP');
+INSERT INTO club VALUES (4, 'Koło Poselskie Konfederacja', 'Konfederacja');
+INSERT INTO club VALUES (5, 'Koło Parlamentarne Polska 2050', 'Polska2050');
+INSERT INTO club VALUES (6, 'Koło Parlamentarne Porozumienie Jarosława Gowina', 'Porozumienie');
+INSERT INTO club VALUES (7, 'Koło Poselskie Kukiz''15 - Demokracja Bezpośrednia', 'Kukiz15');
+INSERT INTO club VALUES (8, 'Koło Parlamentarne PPS', 'PPS');
+INSERT INTO club VALUES (9, 'Koło Poselskie Polskie Sprawy', 'PS');
+INSERT INTO club VALUES (10, 'PSL-Kukiz15', 'PSL-Kukiz15');
+INSERT INTO club VALUES (11, 'niez.', 'niez.');
+INSERT INTO club VALUES (12, 'SLD', 'SLD');
+INSERT INTO club VALUES (13, 'PSL', 'PSL');
+INSERT INTO club VALUES (14, 'WP', 'WP');
