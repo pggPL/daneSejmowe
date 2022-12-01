@@ -58,7 +58,7 @@
     </header>
 
     <section>
-          <table>
+          <table style="white-space: break-spaces">
             <tr>
               <th></th>
               <th></th>
