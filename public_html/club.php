@@ -108,7 +108,7 @@
         echo "<td>".$number_of_speeches_from_club."</td>";
         echo "</tr>";
 
-        $sql = "SELECT COUNT(*) FROM speech;";
+        $sql = "SELECT COUNT(*) FROM speech";
         $result = pg_exec($conn, $sql);
 
         $number_of_speeches_from_club = pg_fetch_row($result)[0];
