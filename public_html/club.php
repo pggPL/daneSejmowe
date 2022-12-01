@@ -115,6 +115,7 @@
 
         echo "<tr>";
         echo "<td>Liczba przemów jako część przemów wszystkich posłów</td>";
+        echo $total_speaches;
         echo "<td>".($number_of_speeches_from_club / $total_speaches)."</td>";
         echo "</tr>";
 
