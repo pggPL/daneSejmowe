@@ -140,7 +140,7 @@
                     document.getElementById("result" + (i + 1)).innerHTML  += cutText(result.hits[i]["_formatted"]["name"]);
 
                     document.getElementById("result" + (i + 1)).onclick = function() {
-                        window.location.href = "vote.html?id=" + result.hits[i]["id"];
+                        window.location.href = "vote.php?id=" + result.hits[i]["id"];
                     }
                     document.getElementById("result" + (i + 1)).style.visibility = "visible";
                 }
