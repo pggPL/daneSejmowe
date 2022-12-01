@@ -31,7 +31,7 @@ for file in files:
 
     session_number = json_file["posiedzenie"]
     number = json_file["wyp"]
-    day = json_file["dzień"]
+    day = json_file["dzien"]
     text = json_file["speech"]
 
     # escape ' in group_name and name
