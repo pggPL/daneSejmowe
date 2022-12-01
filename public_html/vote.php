@@ -85,7 +85,10 @@
         // teraz głosy
 
 
-        $sql = "SELECT type, name FROM vote LEFT JOIN member_of_parliament ON vote.member_of_parliament_id = member_of_parliament.id WHERE voting_id = ".$_GET["id"]."";
+        $sql = "SELECT type, name, club_name FROM vote
+                    LEFT JOIN member_of_parliament ON vote.member_of_parliament_id = member_of_parliament.id
+                    LEFT JOIN club ON member_of_parliament.club_id = club.id
+                    WHERE voting_id = ".$_GET["id"]."";
 
         $result = pg_exec($conn, $sql);
 
