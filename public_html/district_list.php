@@ -58,7 +58,9 @@
         echo '<table>';
         echo '<tr><th>Numer okręgu</th><th>Liczba posłów</th></tr>';
         while ($row = pg_fetch_row($result)) {
-            echo "<tr><td><a href='district.php?number=".substr($row[0], 0, 2)."'>$row[0]</a></td><td>".$row[2]."</td></tr>";
+        // part before nbsp
+            $district = $row[0];
+            echo "<tr><td><a href='district.php?number=".explode(" ", $district)."'>$row[0]</a></td><td>".$row[2]."</td></tr>";
         }
         echo '</table>';
 
