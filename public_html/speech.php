@@ -8,6 +8,7 @@
 <body>
 
 
+
     <header>
     <nav>
         <h2>
@@ -16,21 +17,22 @@
 
         <ul>
             <li>
-                <a> Wyszukiwanie </a>
-                <ul>
-                    <li>
-                        <a href="index.html"> Posłowie </a>
-                    </li>
-                    <li>
-                        <a href="speech_search.html"> Przemowy </a>
-                    </li>
-                    <li>
-                        <a href="vote_search.html"> Głosowania </a>
-                    </li>
-                </ul>
-
+                <a href="index.html"> Posłowie </a>
             </li>
-             'id'];
+            <li>
+                <a href="speech_search.html"> Przemowy </a>
+            </li>
+            <li>
+                <a href="vote_search.html"> Głosowania </a>
+            </li>
+        </ul>
+
+    </nav>
+    </header>
+
+    <?php
+        // assert $_GET['id'] is a number
+        $id = $_GET['id'];
         if (!is_numeric($id)) {
             echo "Invalid id";
             exit();
