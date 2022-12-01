@@ -57,20 +57,14 @@
     </nav>
     </header>
 
-  <section>
         <header>
       <h2>
         Widok posła
       </h2>
     </header>
 
-            <form>
-                <input type="text" id="text" oninput="search()">
-            </form>
-  </section>
 
-
-    <section id = "results">
+    <section>
           <table>
             <tr>
               <th></th>
@@ -86,15 +80,21 @@
           echo "Connection failed";
         }
 
-        $sql = "SELECT name FROM member_of_parliament WHERE id=".$_GET["id"]."";
+        $sql = "SELECT * FROM member_of_parliament WHERE id=".$_GET["id"]."";
         $result = pg_exec($conn, $sql);
 
 
-        $name = pg_fetch_row($result)[0];
+        $row = pg_fetch_row($result);
 
         pg_close($conn);
 
-        echo "<td>Imię i nazwisko</td><td>".$name."</td> ";
+        echo "<td>Imię i nazwisko</td><td>".$row[0]."</td> ";
+        echo "<td>Imię i nazwisko</td><td>".$row[1]."</td> ";
+        echo "<td>Imię i nazwisko</td><td>".$row[2]."</td> ";
+        echo "<td>Imię i nazwisko</td><td>".$row[3]."</td> ";
+        echo "<td>Imię i nazwisko</td><td>".$row[4]."</td> ";
+        echo "<td>Imię i nazwisko</td><td>".$row[5]."</td> ";
+        echo "<td>Imię i nazwisko</td><td>".$row[6]."</td> ";
     ?>
 
             </tr>
