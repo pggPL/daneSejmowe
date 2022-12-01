@@ -15,43 +15,27 @@
             &nbsp Dane sejmowe
         </h2>
 
+
+    <header>
+    <nav>
+        <h2>
+            &nbsp Dane sejmowe
+        </h2>
+
         <ul>
             <li>
-                <a> Wyszukiwanie </a>
-                <ul>
-                    <li>
-                        <a href="index.html"> Posłowie </a>
-                    </li>
-                    <li>
-                        <a href="speech_search.html"> Przemowy </a>
-                    </li>
-                    <li>
-                        <a href="vote_search.html"> Głosowania </a>
-                    </li>
-                </ul>
-
+                <a href="index.html"> Posłowie </a>
             </li>
             <li>
-                <a> Statystyki </a>
-                <ul>
-                    <li>
-                        <a> Najaktywniejsi z klubu </a>
-                    </li>
-                    <li>
-                        <a> Najaktywniejsi na posiedzeniu </a>
-                    </li>
-                    <li>
-                        <a> Najaktywniejsi w okręgach </a>
-                    </li>
-                    <li>
-                        <a href="education.php"> Wykształcenie posłów </a>
-                    </li>
-                    <li>
-                        <a> Statystyki klubów i kół </a>
-                    </li>
-                </ul>
+                <a href="speech_search.html"> Przemowy </a>
+            </li>
+            <li>
+                <a href="vote_search.html"> Głosowania </a>
             </li>
         </ul>
+
+    </nav>
+    </header>
 
     </nav>
     </header>
