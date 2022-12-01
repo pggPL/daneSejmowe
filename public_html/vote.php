@@ -79,8 +79,8 @@
 
         $row = pg_fetch_row($result);
 
-        echo '<h1>'.$row[0].'</h1>';
-        echo '<h1>'.$row[1].'</h1>';
+        echo '<h2>'.$row[0].'</h2>';
+        echo '<h3>'.$row[1].'</h3>';
 
         echo "</main>";
 
