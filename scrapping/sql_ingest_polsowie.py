@@ -52,7 +52,6 @@ for file in os.listdir('../../BD/poslowie'):
     if "Ukończona szkoła:" in posel:
         finished_school = posel["Ukończona szkoła:"]
     profession = posel["Zawód:"]
-    id += 1
 
     date_of_birth = convert_date(date_of_birth)
     date_of_oath = convert_date(date_of_oath)
@@ -68,3 +67,5 @@ for file in os.listdir('../../BD/poslowie'):
           f"{date_of_oath}, '{experience_in_parliament}', {function_in_club}, {date_of_birth}, '{place_of_birth}', '{education}', '{finished_school}', '{profession}', (SELECT id FROM club WHERE name = '{club}'));"
 
     print(sql)
+
+    id += 1
