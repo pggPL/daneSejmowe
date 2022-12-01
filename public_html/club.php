@@ -71,7 +71,7 @@
 
         $club_name = pg_fetch_row($result)[0];
 
-        echo "<h4>".$club_name."</h4>";
+        echo "<header><h4>".$club_name."</h4></header>";
 
         // Dane podstawowe
 
