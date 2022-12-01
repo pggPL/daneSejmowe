@@ -85,7 +85,7 @@
 
         // Dane podstawowe
 
-        echo "<section>".$text."</section>";
+        echo "<section><aside>".$text."</aside></section>";
 
 
         pg_close($conn);?>
