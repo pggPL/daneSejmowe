@@ -78,7 +78,7 @@
 
         echo "<header><h2>Posłowie z okręgu: ".$row[0]."</h2></header>";
 
-        echo "<section><table><tr><th>Imię</th><th>Nazwisko</th><th>Klub</th><th>Lista</th><th>Liczba głosów</th></tr>";
+        echo "<section><table><tr><th>Imię i nazwisko</th><th>Klub</th><th>Lista</th><th>Liczba głosów</th></tr>";
 
         $sql = "SELECT member_of_parliament.name, club.name, list, number_of_votes
                     FROM member_of_parliament LEFT JOIN club ON member_of_parliament.club_id = club.id
