@@ -115,7 +115,7 @@
 
         echo "<tr>";
         echo "<td>Liczba przemów jako część przemów wszystkich posłów</td>";
-        echo "<td>".($number_of_speeches_from_club / $total_speaches)."</td>";
+        echo "<td>".round($number_of_speeches_from_club / $total_speaches * 100, 1)."% </td>";
         echo "</tr>";
 
         echo "</table></section>";
