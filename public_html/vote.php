@@ -144,7 +144,7 @@
 
         echo '<header><h3>Szczegółowe głosy</h3></header>';
 
-        $sql = "SELECT type, member_of_parliament.name, club.name FROM vote
+        $sql = "SELECT type, member_of_parliament.name, member_of_parliament.id, club.name, club.id FROM vote
                     LEFT JOIN member_of_parliament ON vote.member_of_parliament_id = member_of_parliament.id
                     LEFT JOIN club ON member_of_parliament.club_id = club.id
                     WHERE voting_id = ".$_GET["id"]."";
@@ -153,7 +153,7 @@
 
         echo '<section><table>';
         while($row = pg_fetch_row($result)) {
-            echo '<tr><td>'.$row[0].'</td><td> '.$row[1].'</td><td> '.$row[2].'</td></tr>';
+            echo '<tr><td>'.$row[0].'</td><td> <a href="member.php?id='.$row[1].'">'.$row[2].'</a></td><td><a href="club.php?id='.$row[3].'"> '.$row[4].' </a></td></tr>';
         }
         echo '</table></section>';
 
