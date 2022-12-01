@@ -75,7 +75,7 @@
 
         // Dane podstawowe
 
-        echo "<table>";
+        echo "<section><table>";
 
         // liczba posłów w chwili obecnej
 
@@ -92,7 +92,7 @@
         // liczba przemów posłów
         // liczba przemów posłów jako % całości
 
-        echo "</table>";
+        echo "</table></section>";
 
         pg_close($conn);?>
 
