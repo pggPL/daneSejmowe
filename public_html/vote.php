@@ -73,7 +73,7 @@
 
         echo '<main>'.$text;
 
-        $sql = "SELECT group_name, name FROM votings WHERE id = ".$_GET["id"]."";
+        $sql = "SELECT group_name, name FROM voting WHERE id = ".$_GET["id"]."";
 
         $result = pg_exec($conn, $sql);
 
