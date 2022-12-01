@@ -79,7 +79,7 @@
 
         $club_name = pg_fetch_row($result)[0];
 
-        echo "<h1>".$$club_name."</h1>";
+        echo "<h1>".$club_name."</h1>";
 
         pg_close($conn);?>
 
