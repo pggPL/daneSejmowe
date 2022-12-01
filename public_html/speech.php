@@ -76,10 +76,12 @@
         echo $sql;
         $result = pg_exec($conn, $sql);
 
-        $number = pg_fetch_row($result)[0];
-        $session = pg_fetch_row($result)[1];
-        $text = pg_fetch_row($result)[2];
-        $name = pg_fetch_row($result)[3];
+        $row = pg_fetch_row($result);
+
+        $number = $row[0];
+        $session = $row[1];
+        $text = $row[2];
+        $name = $row[3];
 
         echo "<header><h4>Przemowa ".$name."</h4></header>";
 
