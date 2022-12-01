@@ -9,12 +9,6 @@
 <body>
 
 
-    <header>
-    <nav>
-        <h2>
-            &nbsp Dane sejmowe
-        </h2>
-
 
     <header>
     <nav>
@@ -33,9 +27,6 @@
                 <a href="vote_search.html"> Głosowania </a>
             </li>
         </ul>
-
-    </nav>
-    </header>
 
     </nav>
     </header>
