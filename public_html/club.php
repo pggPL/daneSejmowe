@@ -68,7 +68,7 @@
         }
 
 
-        $sql = "SELECT name FROM club WHERE id=".$row[14]."";
+        $sql = "SELECT name FROM club WHERE id=".$GET_["id"]."";
         $result = pg_exec($conn, $sql);
 
         $club_name = pg_fetch_row($result)[0];
