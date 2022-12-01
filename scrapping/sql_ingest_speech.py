@@ -1,4 +1,4 @@
-"""import psycopg2
+import psycopg2
 
 conn=psycopg2.connect(
   database="sejm_db",
@@ -7,7 +7,7 @@ conn=psycopg2.connect(
   password="hRVJCTzNN8PBNUB"
 )
 
-cur = conn.cursor()"""
+cur = conn.cursor()
 
 # iter through ../../BD/mowy/
 import json
@@ -39,6 +39,8 @@ for file in files:
     speaker_str = speaker_str.replace("'", "''")
 
     # sql
-    print(f"INSERT INTO speech (id, session_number, number, text, member_of_parliament_id) VALUES ({id}, {session_number}, {number}, '{text}', (SELECT id FROM member_of_parliament WHERE position(name in '" + speaker_str + f"') > 0))")
-    break
+    cur.executr(f"INSERT INTO speech (id, session_number, number, text, member_of_parliament_id) VALUES ({id}, {session_number}, {number}, '{text}', (SELECT id FROM member_of_parliament WHERE position(name in '" + speaker_str + f"') > 0))")
+
+    print("inserted " + str(id))
+
     id += 1
