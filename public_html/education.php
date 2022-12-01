@@ -16,6 +16,7 @@
         </h2>
 
         <ul>
+
             <li>
                 <a href="index.html"> Posłowie </a>
             </li>
@@ -24,6 +25,9 @@
             </li>
             <li>
                 <a href="vote_search.html"> Głosowania </a>
+            </li>
+            <li>
+                <a href="district_list.php"> Okręgi </a>
             </li>
         </ul>
 
