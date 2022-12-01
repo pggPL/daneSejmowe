@@ -44,7 +44,7 @@
           echo "Connection failed";
         }
 
-        $sql = "SELECT DISTINCT district FROM member_of_parliament ORDER BY substring(district from 0 to 1)";
+        $sql = "SELECT DISTINCT district, CAST (split_part(district, '  ', 1) as int) FROM member_of_parliament ORDER BY CAST (split_part(district, '  ', 1) as int)";
         $result = pg_exec($conn, $sql);
 
         while ($row = pg_fetch_row($result)) {
