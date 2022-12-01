@@ -58,9 +58,9 @@
 
     <section>
     <?php
-            $id = $_GET['id'];
+            $id = $_GET['number'];
         if (!is_numeric($id)) {
-            echo "Invalid id";
+            echo "Invalid number";
             exit();
         }
         // Create connection
@@ -71,7 +71,7 @@
           echo "Connection failed";
         }
 
-        $sql = "SELECT district FROM member_of_parliament WHERE district LIKE '".$_GET["id"]."' || '%'";
+        $sql = "SELECT district FROM member_of_parliament WHERE district LIKE '".$_GET["number"]."' || '%'";
         $result = pg_exec($conn, $sql);
 
 
