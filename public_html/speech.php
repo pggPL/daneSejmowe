@@ -94,7 +94,7 @@
         $result = pg_exec($conn, $sql);
 
         if($row = pg_fetch_row($result)) {
-            echo '<a href = "member.php?id='.$row[0].'">'.$row[1].'</a>';
+            echo 'Profil posła: <a href = "member.php?id='.$row[0].'">'.$row[1].'</a>';
         }
 
         echo "</main>";
