@@ -82,7 +82,7 @@
 
         $sql = "SELECT member_of_parliament.name, club.name, list, number_of_votes
                     FROM member_of_parliament LEFT JOIN club ON member_of_parliament.club_id = club.id
-                    WHERE district LIKE '".$_GET["number"]."' || '%'";
+                    WHERE district LIKE '".$_GET["number"]."' || '%' ORDER BY number_of_votes DESC";
         $result = pg_exec($conn, $sql);
 
 
