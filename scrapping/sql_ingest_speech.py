@@ -39,7 +39,7 @@ for file in files:
     speaker_str = speaker_str.replace("'", "''")
 
     # sql
-    cur.execute(f"INSERT INTO speech (id, session_number, number, text, member_of_parliament_id) VALUES ({id}, {session_number}, {number}, '{text}', (SELECT id FROM member_of_parliament WHERE '" + speaker_str + f"' LIKE name || '%')")
+    cur.execute(f"INSERT INTO speech (id, session_number, number, text, member_of_parliament_id) VALUES ({id}, {session_number}, {number}, '{text}', (SELECT id FROM member_of_parliament WHERE '" + speaker_str + f"' LIKE name || '%'))")
 
     print("inserted " + str(id))
 
