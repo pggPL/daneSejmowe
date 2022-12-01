@@ -78,7 +78,6 @@
 
         $club_name = pg_fetch_row($result)[0];
 
-        pg_close($conn);
 
         echo "<tr><td>Imię i nazwisko</td><td>".$row[1]."</td></tr> ";
         echo "<tr><td>Data wyboru</td><td>".$row[2]."</td></tr> ";
@@ -97,6 +96,9 @@
         $sql = "SELECT count(*) FROM speech WHERE member_of_parliament_id=".$_GET["id"]."";
         $result = pg_exec($conn, $sql);
         echo "<tr><td>Liczba przemówień</td><td>".pg_fetch_row($result)[0]."</td></tr> ";
+
+
+        pg_close($conn);
 
     ?>
 
