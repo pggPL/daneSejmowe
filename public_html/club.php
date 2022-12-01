@@ -98,7 +98,7 @@
         // liczba przemów posłów
         // liczba przemów posłów jako % całości
 
-        $sql = "SELECT * FROM speech WHERE (SELECT club_id FROM member_of_parliament WHERE id = member_of_parliament_id) = ".$_GET["id"]."";
+        $sql = "SELECT COUNT(*) FROM speech WHERE (SELECT club_id FROM member_of_parliament WHERE id = member_of_parliament_id) = ".$_GET["id"]."";
         $result = pg_exec($conn, $sql);
 
         $number_of_speeches_from_club = pg_fetch_row($result)[0];
