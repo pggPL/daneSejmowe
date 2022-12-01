@@ -57,7 +57,7 @@ for file in os.listdir('../../BD/glosowania'):
 
                     sql = f"INSERT INTO vote (id, type, member_of_parliament_id, voting_id, club_of_the_mp_at_the_time) " \
                           f"VALUES " \
-                          f"({id}, '{vote}', (SELECT id FROM member_of_parliament WHERE name = '{name}'), '{id_glosowania}', (SELECT id FROM club WHERE shortcut = '{club_shortcut}'));"
+                          f"({id}, '{vote}', (SELECT id FROM member_of_parliament WHERE name = '{name}'), '{id_glosowania}', (SELECT id FROM club WHERE abbreviation = '{club_shortcut}'));"
 
                     print(sql)
                     cur.execute(sql)
