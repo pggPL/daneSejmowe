@@ -120,6 +120,24 @@
 
         echo "</table></section>";
 
+        echo "<h5>Najbardziej aktywni posłowie</h5>";
+
+        $sql = "SELECT member_of_parliament.id, name, count(text)
+                FROM member_of_parliament
+                LEFT JOIN speech
+                ON member_of_parliament.id = speech.member_of_parliament_id
+                GROUP BY member_of_parliament.id, name
+                HAVING club_id = ".$_GET["id"]."
+                ORDER BY count(text) DESC
+                LIMIT 5;";
+
+
+        $result = pg_exec($conn, $sql);
+
+        while($row = pg_fetch_row($result)) {
+            echo "<td>".$row[1]."</td> <td>".$row[2]."</td>";
+        }
+
         pg_close($conn);?>
 
 
