@@ -131,14 +131,14 @@
                 ORDER BY count(text) DESC
                 LIMIT 5;";
 
-           echo $sql;
-
 
         $result = pg_exec($conn, $sql);
 
+        echo "<section><table>";
         while($row = pg_fetch_row($result)) {
             echo "<td>".$row[1]."</td> <td>".$row[2]."</td>";
         }
+        echo "</table></section>";
 
         pg_close($conn);?>
 
