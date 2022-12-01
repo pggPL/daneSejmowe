@@ -85,7 +85,7 @@
         // teraz głosy
 
 
-        $sql = "SELECT type, name, club_name FROM vote
+        $sql = "SELECT type, member_of_parliament.name, club.name FROM vote
                     LEFT JOIN member_of_parliament ON vote.member_of_parliament_id = member_of_parliament.id
                     LEFT JOIN club ON member_of_parliament.club_id = club.id
                     WHERE voting_id = ".$_GET["id"]."";
@@ -94,7 +94,7 @@
 
         echo '<section><table>';
         while($row = pg_fetch_row($result)) {
-            echo '<tr><td>'.$row[0].'</td><td> '.$row[1].'</td></tr>';
+            echo '<tr><td>'.$row[0].'</td><td> '.$row[1].'</td><td> '.$row[2].'</td></tr>';
         }
         echo '</table></section>';
 
