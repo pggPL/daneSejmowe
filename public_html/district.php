@@ -49,7 +49,7 @@
           echo "Connection failed";
         }
 
-        $sql = "SELECT district FROM member_of_parliament WHERE district LIKE '".$_GET["number"]."' || '%'";
+        $sql = "SELECT district FROM member_of_parliament WHERE district LIKE '".$_GET["number"].&nbsp"' || '%'";
         $result = pg_exec($conn, $sql);
 
 
