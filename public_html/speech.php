@@ -87,7 +87,7 @@
 
         echo '<main>'.$text."</main>";
 
-        $sql = "SELECT id, name
+        $sql = "SELECT member_of_parliament.id, name
                     FROM speech LEFT JOIN member_of_parliament ON member_of_parliament.id = member_of_parliament_id
                     WHERE speech.id=".$_GET["id"]."";
 
