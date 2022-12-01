@@ -57,7 +57,7 @@
 
         echo '<table>';
         while ($row = pg_fetch_row($result)) {
-            echo "<tr><td><a href='district.php?number=".substr($row[0], 0, 2)."'>$row[2]</a></td><td>".$row[1]."</td></tr>";
+            echo "<tr><td><a href='district.php?number=".substr($row[0], 0, 2)."'>$row[0]</a></td><td>".$row[1]."</td></tr>";
         }
         echo '</table>';
 
