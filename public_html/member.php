@@ -78,6 +78,11 @@
 
         $row = pg_fetch_row($result);
 
+        $sql = "SELECT name FROM club WHERE id=".$row[14]."";
+        $result = pg_exec($conn, $sql);
+
+        $club_name = pg_fetch_row($result)[0];
+
         pg_close($conn);
 
         echo "<tr><td>Imię i nazwisko</td><td>".$row[1]."</td></tr> ";
@@ -93,6 +98,7 @@
         echo "<tr><td>Wykształcenie</td><td>".$row[11]."</td></tr> ";
         echo "<tr><td>Ukończona szkoła</td><td>".$row[12]."</td></tr> ";
         echo "<tr><td>Zawód</td><td>".$row[13]."</td></tr> ";
+    echo "<tr><td>Klub/koło poselskie</td><td><a href=\"club.php?id=\\\"".$row[14]."\\\"\">".$club_name."</a></td></tr> ";
     ?>
 
           </table>
