@@ -70,7 +70,7 @@
 
 
         while($row = pg_fetch_row($result)) {
-            echo '<tr><td><a href="member?id='.$row[0].'">'.$row[1]."</a></td><td>".$row[2]."</td><td>".$row[3]."</td><td>".$row[4]."</td><td>".$row[5]."</td><td>".$row[6]."</td></tr>";
+            echo '<tr><td><a href="member.php?id='.$row[0].'">'.$row[1]."</a></td><td>".$row[2]."</td><td>".$row[3]."</td><td>".$row[4]."</td><td>".$row[5]."</td><td>".$row[6]."</td></tr>";
         }
 
         echo "</table></section>";
