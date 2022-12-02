@@ -57,16 +57,20 @@
 
         echo "<header><h2>Posłowie z okręgu: ".$row[0]."</h2></header>";
 
-        echo "<section><table><tr><th>Imię i nazwisko</th><th>Klub</th><th>Lista</th><th>Liczba głosów</th></tr>";
+        echo "<section><table><tr><th>Imię i nazwisko</th><th>Klub</th><th>Lista</th><th>Liczba głosów</th><th>Liczba przemów</th><th>Ile razy głosował(a)</th></tr>";
 
-        $sql = "SELECT member_of_parliament.name, club.name, list, number_of_votes
-                    FROM member_of_parliament LEFT JOIN club ON member_of_parliament.club_id = club.id
-                    WHERE district LIKE '".$_GET["number"]." ' || '%' ORDER BY number_of_votes DESC";
+        $sql = "SELECT member_of_parliament.name, club.name, list, number_of_votes,
+                (SELECT count(*) FROM speech WHERE speech.member_of_parliament_id = member_of_parliament.id) AS speeches,
+                (SELECT count(*) FROM vote WHERE vote.member_of_parliament_id = member_of_parliament.id) AS votes
+                FROM member_of_parliament
+                LEFT JOIN club ON member_of_parliament.club_id = club.id
+                WHERE district LIKE '".$_GET["number"]." ' || '%'
+                ORDER BY number_of_votes DESC";
         $result = pg_exec($conn, $sql);
 
 
         while($row = pg_fetch_row($result)) {
-            echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td></tr>";
+            echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td><td>".$row[4]."</td><td>".$row[5]."</td></tr>";
         }
 
         echo "</table></section>";
