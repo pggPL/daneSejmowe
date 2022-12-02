@@ -91,7 +91,17 @@
         echo "</table></section>";
 
 
+        // ranking przemówień
+        $sql = "SELECT id, name, number_of_votes FROM member_of_parliament ORDER BY number_of_votes DESC LIMIT 20;";
+        $result = pg_query($conn, $sql);
 
+        echo "<header><h2>Poparcie w wyborach</h2></header>";
+        echo "<section><table>";
+        echo "<tr><th>Imię i nazwisko</th><th>Liczba głosów</th></tr>";
+        while($row = pg_fetch_row($result)) {
+            echo "<tr><td><a href='member.php?id=$row[0]'>$row[1]</a></td><td>$row[1]</td></tr>";
+        }
+        echo "</table></section>";
 
 
         pg_close($conn);
