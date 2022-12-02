@@ -19,7 +19,6 @@
         <ul>
 
 
-
             <li>
                 <a href="index.html"> Posłowie </a>
             </li>
@@ -31,9 +30,6 @@
             </li>
             <li>
                 <a href="district_list.php"> Okręgi </a>
-            </li>
-            <li>
-                <a href="clubs_list.php"> Kluby </a>
             </li>
             <li>
                 <a href="ratings.php"> Rankingi </a>
