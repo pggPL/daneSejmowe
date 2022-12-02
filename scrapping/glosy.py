@@ -19,9 +19,10 @@ from bs4 import BeautifulSoup
 
 cur = conn.cursor()
 
-#cur.execute("DELETE FROM vote")
+cur.execute("SELECT max(id) FROM vote;")
+result = cur.fetchone()
 
-id = 0
+id = result[0] + 1
 for file in os.listdir('../../BD/glosowania'):
     with open(f'../../BD/glosowania/{file}', 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -48,7 +49,11 @@ for file in os.listdir('../../BD/glosowania'):
                 #print(soup.prettify())
 
                 # irate over td and make pairs from 3k + 1 and 3k +2
-                td = soup.find('div', {'id': 'contentBody'}).findAll('td')
+                try:
+                    td = soup.find('div', {'id': 'contentBody'}).findAll('td')
+                except:
+                    print('error')
+                    continue
                 for j in range(0, len(td), 3):
                     # get data from td
                     id_glosowania = id_glosowania
