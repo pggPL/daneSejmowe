@@ -60,7 +60,7 @@
         while ($row = pg_fetch_row($result)) {
             // split district by   and get first part
             $district = $row[0];
-            $district = explode("  ", $district);
+            $district = explode(" ", $district);
             $district = $district[0];
 
 

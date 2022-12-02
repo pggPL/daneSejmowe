@@ -68,8 +68,9 @@
         // get first number from $row[4]
 
         $district = $row[4];
-        $district = explode("  ", $district);
-        $district = $district[4];
+        $district = explode(" ", $district);
+        $district = $district[0];
+
         echo "<tr><td>Okręg</td><td><a href=\"district.php?number=".$district."\">".$row[4]."</a></td></tr> ";
         echo "<tr><td>Liczba głosów</td><td>".$row[5]."</td></tr> ";
         echo "<tr><td>Ślubowanie</td><td>".$row[6]."</td></tr> ";
