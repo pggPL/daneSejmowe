@@ -60,7 +60,7 @@
                 LIMIT 10;";
         $result = pg_query($conn, $sql);
 
-        echo "<heading><h2>Ranking przemówień</h2></heading>";
+        echo "<header><h2>Ranking przemówień</h2></header>";
         echo "<section><table>";
         echo "<tr><th>Imię i nazwisko</th><th>Liczba przemówień</th></tr>";
         while($row = pg_fetch_row($result)) {
