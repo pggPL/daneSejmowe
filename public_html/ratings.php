@@ -79,7 +79,7 @@
                 ON member_of_parliament.club_id = club.id
                 GROUP BY member_of_parliament.id, member_of_parliament.name, club.name
                 ORDER BY count(text)
-                LIMIT 20;";
+                LIMIT 30;";
         $result = pg_query($conn, $sql);
 
         echo "<header><h2>Ranking przemówień – dolna część</h2></header>";
