@@ -59,10 +59,30 @@
                 ON member_of_parliament.club_id = club.id
                 GROUP BY member_of_parliament.id, member_of_parliament.name, club.name
                 ORDER BY count(text) DESC
-                LIMIT 10;";
+                LIMIT 20;";
         $result = pg_query($conn, $sql);
 
         echo "<header><h2>Ranking przemówień</h2></header>";
+        echo "<section><table>";
+        echo "<tr><th>Imię i nazwisko</th><th>Klub/koło poselskie</th><th>Liczba przemówień</th></tr>";
+        while($row = pg_fetch_row($result)) {
+            echo "<tr><td><a href='member.php?id=$row[0]'>$row[1]</a></td><td>$row[2]</td><td>$row[3]</td></tr>";
+        }
+        echo "</table></section>";
+
+        // ranking przemówień
+        $sql = "SELECT member_of_parliament.id, member_of_parliament.name, club.name, count(text)
+                FROM member_of_parliament
+                LEFT JOIN speech
+                ON member_of_parliament.id = speech.member_of_parliament_id
+                LEFT JOIN club
+                ON member_of_parliament.club_id = club.id
+                GROUP BY member_of_parliament.id, member_of_parliament.name, club.name
+                ORDER BY count(text)
+                LIMIT 20;";
+        $result = pg_query($conn, $sql);
+
+        echo "<header><h2>Ranking przemówień – dolna część</h2></header>";
         echo "<section><table>";
         echo "<tr><th>Imię i nazwisko</th><th>Klub/koło poselskie</th><th>Liczba przemówień</th></tr>";
         while($row = pg_fetch_row($result)) {
