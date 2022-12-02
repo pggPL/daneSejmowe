@@ -59,7 +59,7 @@
 
         echo "<section><table><tr><th>Imię i nazwisko</th><th>Klub</th><th>Lista</th><th>Liczba głosów</th><th>Liczba przemów</th><th>Ile razy głosował(a)</th></tr>";
 
-        $sql = "SELECT member_of_parliament.name, club.name, list, number_of_votes,
+        $sql = "SELECT member_of_parliament.id, member_of_parliament.name, club.name, list, number_of_votes,
                 (SELECT count(*) FROM speech WHERE speech.member_of_parliament_id = member_of_parliament.id) AS speeches,
                 (SELECT count(*) FROM vote WHERE vote.member_of_parliament_id = member_of_parliament.id) AS votes
                 FROM member_of_parliament
@@ -70,7 +70,7 @@
 
 
         while($row = pg_fetch_row($result)) {
-            echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td><td>".$row[4]."</td><td>".$row[5]."</td></tr>";
+            echo '<tr><td><a href="member?id='.$row[0].'">'.$row[1]."</a></td><td>".$row[2]."</td><td>".$row[3]."</td><td>".$row[4]."</td><td>".$row[5]."</td><td>".$row[6]."</td></tr>";
         }
 
         echo "</table></section>";
