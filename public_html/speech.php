@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
-    <title>Wyszukiwarka posłów</title>
+    <title>Przemowa</title>
 </head>
 <body>
 
