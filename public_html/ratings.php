@@ -99,7 +99,7 @@
         echo "<section><table>";
         echo "<tr><th>Imię i nazwisko</th><th>Liczba głosów</th></tr>";
         while($row = pg_fetch_row($result)) {
-            echo "<tr><td><a href='member.php?id=$row[0]'>$row[1]</a></td><td>$row[1]</td></tr>";
+            echo "<tr><td><a href='member.php?id=$row[0]'>$row[1]</a></td><td>$row[2]</td></tr>";
         }
         echo "</table></section>";
 
