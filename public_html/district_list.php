@@ -55,7 +55,7 @@
                     ORDER BY CAST (split_part(m1.district, '  ', 1) as int)";
         $result = pg_exec($conn, $sql);
 
-        echo '<table>';
+        echo '<section><table>';
         echo '<tr><th>Numer okręgu</th><th>Liczba posłów</th></tr>';
         while ($row = pg_fetch_row($result)) {
             // split district by   and get first part
@@ -66,7 +66,7 @@
 
             echo "<tr><td><a href='district.php?number=".$district."'>$row[0]</a></td><td>".$row[2]."</td></tr>";
         }
-        echo '</table>';
+        echo '</table></section>';
 
 
 
